@@ -1,0 +1,47 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "NginxApp Values",
+  "type": "object",
+  "properties": {
+    "replicaCount": {
+      "type": "integer",
+      "default": 1,
+      "description": "Number of NGINX replicas."
+    },
+    "image": {
+      "type": "object",
+      "properties": {
+        "repository": {
+          "type": "string",
+          "default": "nginx",
+          "description": "NGINX image repository."
+        },
+        "pullPolicy": {
+          "type": "string",
+          "default": "IfNotPresent",
+          "description": "Image pull policy."
+        },
+        "tag": {
+          "type": "string",
+          "default": "1.25.4",
+          "description": "NGINX image tag."
+        }
+      }
+    },
+    "service": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "default": "ClusterIP",
+          "description": "Kubernetes service type."
+        },
+        "port": {
+          "type": "integer",
+          "default": 80,
+          "description": "Service port."
+        }
+      }
+    }
+  }
+}
